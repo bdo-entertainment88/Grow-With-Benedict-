@@ -1,8 +1,29 @@
-import { registerRootComponent } from 'expo';
+export interface Product {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  description: string;
+  longDescription: string;
+  selarUrl: string | null;
+  priceNote: string;
+  image: string; // local require or remote URL
+  color: string;
+}
 
-import App from './App';
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  createdAt: string;
+}
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+export type ProgressStatus = 'not_started' | 'in_progress' | 'completed';
+
+export interface UserProgress {
+  productId: string;
+  status: ProgressStatus;
+  progressPercent: number;
+  lastUpdated: string;
+  notes?: string;
+}
